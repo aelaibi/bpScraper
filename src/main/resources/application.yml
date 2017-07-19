@@ -1,0 +1,18 @@
+spring:
+  main:
+    banner-mode: 'off'
+
+
+logging:
+  file: logs/dev_app.log
+  pattern:
+    console: "%logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.apache.http: info
+    ma.ael.bank: info
+
+data:
+  path: 'data'

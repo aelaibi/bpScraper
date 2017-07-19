@@ -1,25 +1,57 @@
 package ma.ael.bank;
 
 import ma.ael.bank.crawler.bp.BPCrawler;
+import ma.ael.bank.utils.ConvertException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
-/**
- * Created by ael on 14/03/2016.
- */
-public class Application {
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Arrays;
+
+
+@SpringBootApplication
+public class Application implements ApplicationRunner {
+    private final static Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
 
 
-    public static void main(String[] args) throws Exception {
+    @Autowired
+    private BPCrawler bpCrawler;
 
-        if(args.length>0){
-            BPCrawler crawler = new BPCrawler();
+    @Value("${p}")
+    private String pwd;
+    @Value("${i}")
+    private String identifiant;
 
-            String identifiantContrat = args[0];
-            String pwd = args[1];
-            crawler.loadOperations(identifiantContrat, pwd);
-        }else{
+    @Override
+    public void run(ApplicationArguments args) {
+        LOGGER.info("Application started with command-line arguments: {} ", args.getOptionNames());
+
+        if (identifiant != null && pwd!=null) {
+
+            try {
+                bpCrawler.loadOperations(identifiant, pwd);
+            } catch (Exception e) {
+                LOGGER.error("",e);
+            }
+        } else {
             System.err.println("Arguments  are missing!, her is an exemple : java ma.ael.bank.Application login password");
         }
-
     }
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+
+
+
 }
