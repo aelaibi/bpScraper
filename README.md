@@ -1,6 +1,6 @@
 
 
-This a simple crawler for https://bpnet.gbp.ma, it simulates a real user  authentication then export the last 3 months statements into a csv file.
+This is a simple crawler for https://bpnet.gbp.ma, it simulates a real user  authentication then export the last 3 months statements into a csv file.
 
 
 Quick start
