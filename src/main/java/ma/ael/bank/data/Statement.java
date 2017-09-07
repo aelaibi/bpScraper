@@ -92,22 +92,22 @@ public class Statement {
 
     @JsonProperty("SldDeb")
     public String getSldDeb() {
-        return sldDeb;
+        return sldDeb.replace(",",".");
     }
 
     @JsonProperty("SldDeb")
     public void setSldDeb(String sldDeb) {
-        this.sldDeb = sldDeb;
+        this.sldDeb = sldDeb.replace(",",".");
     }
 
     @JsonProperty("SldFin")
     public String getSldFin() {
-        return sldFin;
+        return sldFin.replace(",",".");
     }
 
     @JsonProperty("SldFin")
     public void setSldFin(String sldFin) {
-        this.sldFin = sldFin;
+        this.sldFin = sldFin.replace(",",".");
     }
 
     @JsonProperty("DateSoldeFin")
@@ -122,32 +122,32 @@ public class Statement {
 
     @JsonProperty("Cumul")
     public String getCumul() {
-        return cumul;
+        return cumul.replace(",",".");
     }
 
     @JsonProperty("Cumul")
     public void setCumul(String cumul) {
-        this.cumul = cumul;
+        this.cumul = cumul.replace(",",".");
     }
 
     @JsonProperty("CumulJour")
     public String getCumulJour() {
-        return cumulJour;
+        return cumulJour.replace(",",".");
     }
 
     @JsonProperty("CumulJour")
     public void setCumulJour(String cumulJour) {
-        this.cumulJour = cumulJour;
+        this.cumulJour = cumulJour.replace(",",".");
     }
 
     @JsonProperty("Montant")
     public String getMontant() {
-        return montant;
+        return montant.replace(",",".");
     }
 
     @JsonProperty("Montant")
     public void setMontant(String montant) {
-        this.montant = montant;
+        this.montant = montant.replace(",",".");
     }
 
     @JsonProperty("CodeOpib")

@@ -30,7 +30,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BPCrawler {
     private final Logger LOGGER = LoggerFactory.getLogger(BPCrawler.class);
-    private final String HEADER = "Datedeb, Datefin, SldDeb, SldFin, DateSoldeFin, Cumul, CumulJour, Montant, CodeOpib, CodeOpi, NumCompte, Dateope, Dateval, LibOpe, RefOpe, SensOpe, DateEnr";
+    private final String HEADER = "Datedeb,Datefin,SldDeb,SldFin,DateSoldeFin,Cumul,CumulJour,Montant,CodeOpib,CodeOpi,NumCompte,Dateope,Dateval,LibOpe,RefOpe,SensOpe,DateEnr";
     @Value("${data.path}")
     private String dataPATH;
     final String FILE_NAME_PATTERN = "ops-ddmmyyyy.txt";
