@@ -2,6 +2,6 @@
 /.idea/
 /logs/
 bpcrawler.iml
-data/
+
 python/.ipynb_checkpoints/
 target/
