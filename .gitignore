@@ -1,7 +1,5 @@
-
+/target/
 /.idea/
 /logs/
-bpcrawler.iml
-
 python/.ipynb_checkpoints/
-target/
+*.iml
