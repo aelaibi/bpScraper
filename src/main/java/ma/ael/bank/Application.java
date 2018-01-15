@@ -1,21 +1,15 @@
 package ma.ael.bank;
 
 import ma.ael.bank.crawler.bp.BPCrawler;
-import ma.ael.bank.utils.ConvertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Arrays;
 
 
 @SpringBootApplication
