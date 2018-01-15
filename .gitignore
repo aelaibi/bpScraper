@@ -3,3 +3,4 @@
 /logs/
 python/.ipynb_checkpoints/
 *.iml
+/data/
