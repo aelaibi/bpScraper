@@ -42,7 +42,7 @@ public class BpConnector {
 
 
     public void login(String pwd, String identifiantContrat) throws URISyntaxException, IOException {
-        String homeAnonymUrl = "https://bp-net.gbp.ma/Dashboard";
+        String homeAnonymUrl = "https://bpnet.gbp.ma/Dashboard";
 
         String loginHtml = getHttp(homeAnonymUrl);
         LOGGER.debug("login page {}",loginHtml);
@@ -95,7 +95,7 @@ public class BpConnector {
 
         HttpUriRequest afterLogin = RequestBuilder
                 .post()
-                .setUri(new URI("https://bp-net.gbp.ma//Account/AfterLogin"))
+                .setUri(new URI("https://bpnet.gbp.ma//Account/AfterLogin"))
                 .addParameter("acs",acs)
                 .addParameter("act",act)
                 .addParameter("senderid",senderid)
@@ -127,7 +127,7 @@ public class BpConnector {
         LOGGER.info("Loading statements");
         HttpUriRequest tmp = RequestBuilder
                 .post()
-                .setUri(new URI("https://bp-net.gbp.ma/Compte/Compte/GetStatements"))
+                .setUri(new URI("https://bpnet.gbp.ma/Compte/Compte/GetStatements"))
                 .addParameter("x-ms-request-id","zwWF")
                 .addParameter("x-ms-request-root-id","2SFvy")
                 .addParameter("X-Requested-With","XMLHttpRequest")
