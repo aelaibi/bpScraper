@@ -1,0 +1,12 @@
+
+
+
+data:
+  path: 'data'
+logging:
+  level:
+    ROOT: info
+    ma.ael.lab: debug
+spring:
+  main:
+    banner-mode: off

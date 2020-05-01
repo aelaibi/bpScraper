@@ -1,5 +1,6 @@
 package ma.ael.bank;
 
+import lombok.extern.slf4j.Slf4j;
 import ma.ael.bank.crawler.bp.BPCrawler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,11 +11,15 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 
 @SpringBootApplication
+@Slf4j
 public class Application implements ApplicationRunner {
-    private final static Logger LOGGER = LoggerFactory.getLogger(Application.class);
+    //private final static Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
 
 
@@ -28,17 +33,24 @@ public class Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        LOGGER.info("Application started with command-line arguments: {} ", args.getOptionNames());
+        log.info("Application started with command-line arguments: {} ", args.getOptionNames());
+        final List<String> nonOptionArgs = args.getNonOptionArgs();
+        final String[] sourceArgs = args.getSourceArgs();
+        final Set<String> optionNames = args.getOptionNames();
+        nonOptionArgs.forEach(nonOption -> log.info("## Non Option Args : "+nonOption));
+        optionNames.forEach(option -> log.info("## Option Names    : "+option));
+        Arrays.stream(sourceArgs).forEach(srcArgs ->log.info("## Source Args     : "+srcArgs));
+
 
         if (identifiant != null && pwd!=null) {
 
             try {
                 bpCrawler.loadOperations(identifiant, pwd);
             } catch (Exception e) {
-                LOGGER.error("",e);
+                log.error("",e);
             }
         } else {
-            System.err.println("Arguments  are missing!, her is an exemple : java ma.ael.bank.Application login password");
+            log.error("Arguments  are missing!, her is an exemple : java ma.ael.bank.Application login password");
         }
     }
 
